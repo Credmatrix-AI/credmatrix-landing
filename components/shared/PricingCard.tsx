@@ -77,7 +77,8 @@ export default function PricingCard({ tier }: PricingCardProps) {
       {/* Price */}
       <div className="mb-24 pb-24 border-b border-neutral-200">
         <span className={cn('text-3xl md:text-4xl font-bold', style.price)}>
-          {tier.price} <span className='text-lg text-black regular'>+ GST</span>
+          {tier.price}
+          {tier.variant !== 'pink' && <span className='text-lg text-black regular'> + GST</span>}
         </span>
         {tier.period && (
           <span className="text-sm text-neutral-500 ml-4">/{tier.period}</span>
