@@ -27,7 +27,7 @@ export const HOME_STATS: StatItem[] = [
 export const PRICING_TIERS: PricingTier[] = [
   {
     name: 'Single',
-    price: '₹499',
+    price: '₹749',
     description: 'Perfect for small tasks and one-time credit checks',
     features: [
       'Self Search',
@@ -39,7 +39,7 @@ export const PRICING_TIERS: PricingTier[] = [
   },
   {
     name: 'Bulk',
-    price: '₹9,980',
+    price: '₹7,490',
     description: 'Ideal for teams needing regular credit assessments',
     features: [
       'Self Search',
