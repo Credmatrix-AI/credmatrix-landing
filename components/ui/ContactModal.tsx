@@ -14,6 +14,8 @@ interface ContactModalProps {
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [formData, setFormData] = useState({
     name: '',
+    organisation: '',
+    email: '',
     phone: '',
     query: ''
   })
@@ -33,15 +35,16 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
-          from_name: formData.name,
-          phone_number: formData.phone,
-          message: formData.query,
+          name: formData.name,
+          organisation: formData.organisation,
+          email: formData.email,
+          message: `${formData.query.trim() || 'Hi, I was exploring your website and would like to know more about your services.'}\n\nBest regards,\n${formData.name}\n${formData.organisation}\nPhone: ${formData.phone}`,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
 
       setIsSuccess(true)
-      setFormData({ name: '', phone: '', query: '' })
+      setFormData({ name: '', organisation: '', email: '', phone: '', query: '' })
 
       setTimeout(() => {
         setIsSuccess(false)
@@ -55,7 +58,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   }
 
   const handleClose = () => {
-    setFormData({ name: '', phone: '', query: '' })
+    setFormData({ name: '', organisation: '', email: '', phone: '', query: '' })
     setError('')
     setIsSuccess(false)
     onClose()
@@ -66,8 +69,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       {isSuccess ? (
         <div className="text-center py-16">
           <CheckCircle className="w-48 h-48 text-green-500 mx-auto mb-12" />
-          <p className="text-lg font-medium text-secondary">Message sent successfully!</p>
-          <p className="text-sm text-neutral-500 mt-4">We&apos;ll get back to you soon.</p>
+          <p className="text-lg font-medium text-secondary">Thank you for reaching out!</p>
+          <p className="text-sm text-neutral-500 mt-4">Our team will get in touch with you shortly.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-12 md:space-y-16">
@@ -86,14 +89,27 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           />
+          <Input
+            label="Organisation"
+            placeholder="Your organisation"
+            required
+            value={formData.organisation}
+            onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
+          />
+          <Input
+            label="Email"
+            type="email"
+            placeholder="Your email (optional)"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          />
           <div>
             <label className="block text-sm font-medium text-neutral-700 mb-8">
-              Query
+              Message
             </label>
             <textarea
-              placeholder="How can we help you?"
+              placeholder="How can we help you? (optional)"
               rows={4}
-              required
               value={formData.query}
               onChange={(e) => setFormData({ ...formData, query: e.target.value })}
               className="w-full px-16 py-12 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder:text-neutral-400 resize-none"

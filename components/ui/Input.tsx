@@ -16,6 +16,7 @@ export default function Input({
       {label && (
         <label className="block text-sm font-medium text-neutral-700 mb-8">
           {label}
+          {props.required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
       <input

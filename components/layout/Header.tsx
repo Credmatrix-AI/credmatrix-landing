@@ -59,7 +59,8 @@ export default function Header() {
             <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer">
               <Button variant="primary" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
                 <LogIn className="w-16 h-16 mr-8" />
-                Login / Signup
+                Login
+                 {/* / Signup */}
               </Button>
             </a>
 
@@ -107,7 +108,8 @@ export default function Header() {
                 <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="w-full">
                   <Button variant="primary" size="sm" className="w-full justify-center">
                     <LogIn className="w-16 h-16 mr-8" />
-                    Login / Signup
+                    Login
+                     {/* / Signup */}
                   </Button>
                 </a>
               </div>

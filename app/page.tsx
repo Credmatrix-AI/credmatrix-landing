@@ -15,7 +15,7 @@ export default function Home() {
       <IntelligentPlatform />
             <HowWeTransform />
       <CTA />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </>
   )
 }
