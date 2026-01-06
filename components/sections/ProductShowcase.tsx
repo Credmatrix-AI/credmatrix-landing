@@ -139,12 +139,12 @@ export default function ProductShowcase({ section, index = 0 }: ProductShowcaseP
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: DURATION.fast, delay: 0.7, ease: EASING }}
             >
-              <Link href="/solutions">
+              <Link href="https://app.credmatrix.ai/login">
                 <Button variant="outline" size="sm">Explore</Button>
               </Link>
-              <Button variant="ghost" size="sm" className="text-neutral-600 hover:text-[#0E6EBE]">
+              {/* <Button variant="ghost" size="sm" className="text-neutral-600 hover:text-[#0E6EBE]">
                 Watch Tutorial
-              </Button>
+              </Button> */}
             </motion.div>
           </motion.div>
 
