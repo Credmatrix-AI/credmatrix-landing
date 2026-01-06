@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { X } from 'lucide-react'
+import Modal from './Modal'
 
 interface ContentModalProps {
   isOpen: boolean
@@ -66,40 +66,9 @@ export default function ContentModal({ isOpen, onClose, title, contentUrl }: Con
     }
   }, [isOpen, content, contentUrl])
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [isOpen])
-
-  if (!isOpen) return null
-
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-12 md:p-16">
-      <div className="bg-white rounded-xl max-w-2xl w-full relative max-h-[90vh] flex flex-col">
-        {/* Sticky Header */}
-        <div className="sticky top-0 bg-white rounded-t-xl border-b border-neutral-200 px-16 md:px-32 py-16 md:py-20 flex items-center justify-between z-10">
-          <h3 className="text-xl md:text-2xl font-semibold text-secondary">
-            {title}
-          </h3>
-          <button
-            onClick={onClose}
-            className="text-neutral-400 hover:text-neutral-600 transition-colors"
-          >
-            <X className="w-20 h-20 md:w-24 md:h-24" />
-          </button>
-        </div>
-
-        {/* Scrollable Content */}
-        <div className="overflow-y-auto flex-1 px-16 md:px-32 py-16 md:py-24">
-          <MarkdownContent content={content} />
-        </div>
-      </div>
-    </div>
+    <Modal isOpen={isOpen} onClose={onClose} title={title} maxWidth="2xl" scrollable>
+      <MarkdownContent content={content} />
+    </Modal>
   )
 }

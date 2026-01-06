@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { ArrowRight, Menu, X } from 'lucide-react'
+import { LogIn, Menu, X } from 'lucide-react'
 import Container from './Container'
 import Button from '@/components/ui/Button'
 import WhatsAppIcon from '@/components/icons/WhatsAppIcon'
@@ -50,14 +50,16 @@ export default function Header() {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-8 md:gap-16">
-            <Button variant="outline" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
-              <WhatsAppIcon className="w-16 h-16 mr-8" />
-              Speak with Risk Expert
-            </Button>
+            <a href="https://wa.me/919686866005" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
+                <WhatsAppIcon className="w-16 h-16 mr-8" />
+                Speak with Risk Expert
+              </Button>
+            </a>
             <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer">
               <Button variant="primary" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
-                Get Started
-                <ArrowRight className="w-16 h-16 ml-8" />
+                <LogIn className="w-16 h-16 mr-8" />
+                Login / Signup
               </Button>
             </a>
 
@@ -96,14 +98,16 @@ export default function Header() {
                 </Link>
               ))}
               <div className="flex flex-col gap-8 pt-8 border-t border-neutral-200">
-                <Button variant="outline" size="sm" className="w-full justify-center">
-                  <WhatsAppIcon className="w-16 h-16 mr-8" />
-                  Speak with Risk Expert
-                </Button>
+                <a href="https://wa.me/919686866005" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button variant="outline" size="sm" className="w-full justify-center">
+                    <WhatsAppIcon className="w-16 h-16 mr-8" />
+                    Speak with Risk Expert
+                  </Button>
+                </a>
                 <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="w-full">
                   <Button variant="primary" size="sm" className="w-full justify-center">
-                    Get Started
-                    <ArrowRight className="w-16 h-16 ml-8" />
+                    <LogIn className="w-16 h-16 mr-8" />
+                    Login / Signup
                   </Button>
                 </a>
               </div>

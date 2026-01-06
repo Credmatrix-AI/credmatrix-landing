@@ -1,6 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import Container from '@/components/layout/Container'
 import Section from '@/components/layout/Section'
@@ -137,9 +139,9 @@ export default function ProductShowcase({ section, index = 0 }: ProductShowcaseP
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: DURATION.fast, delay: 0.7, ease: EASING }}
             >
-              <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer">
+              <Link href="/solutions">
                 <Button variant="outline" size="sm">Explore</Button>
-              </a>
+              </Link>
               <Button variant="ghost" size="sm" className="text-neutral-600 hover:text-[#0E6EBE]">
                 Watch Tutorial
               </Button>
@@ -155,9 +157,12 @@ export default function ProductShowcase({ section, index = 0 }: ProductShowcaseP
             transition={{ duration: DURATION.slow, delay: 0.2, ease: EASING }}
           >
             {section.image ? (
-              <img
+              <Image
                 src={section.image}
                 alt={section.title}
+                width={0}
+                height={0}
+                sizes="100vw"
                 className="w-full h-auto rounded-xl border border-neutral-200"
               />
             ) : (

@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Compass } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/layout/Container'
@@ -81,21 +83,25 @@ export default function Hero() {
                   <ArrowRight className="w-16 h-16 md:w-6 md:h-6 ml-4 md:ml-8" />
                 </Button>
               </a>
-              <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Link href="/solutions" className="w-full sm:w-auto">
                 <Button variant="outline" size="sm" className="w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-transform">
                   <Compass className="w-16 h-16 md:w-6 md:h-6 mr-4 md:mr-8" />
                   Explore Product
                 </Button>
-              </a>
+              </Link>
             </div>
           </AnimateOnScroll>
 
           {/* Product Demo Image */}
           <AnimateOnScroll animation="scale" delay={200} className="max-w-5xl mx-auto mb-80">
-            <img
+            <Image
               src="/hero-banner.png"
               alt="CredMatrix Platform"
+              width={0}
+              height={0}
+              sizes="100vw"
               className="w-full h-auto"
+              priority
             />
           </AnimateOnScroll>
 

@@ -3,11 +3,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Phone, ArrowRight, IndianRupee } from 'lucide-react'
+import { Mail, Phone, MessageCircle, IndianRupee } from 'lucide-react'
 import Container from './Container'
 import Button from '@/components/ui/Button'
-import Input from '@/components/ui/Input'
 import ContentModal from '@/components/ui/ContentModal'
+import ContactModal from '@/components/ui/ContactModal'
 import { FOOTER_LINKS } from '@/constants'
 
 export default function Footer() {
@@ -91,16 +91,16 @@ export default function Footer() {
                     View Pricing
                   </Button>
                 </Link>
-                <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    className="w-full whitespace-nowrap"
-                  >
-                    Get Started
-                    <ArrowRight className="w-12 h-12 md:w-16 md:h-16 ml-4" />
-                  </Button>
-                </a>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  className="flex-1 whitespace-nowrap"
+                  onClick={() => setShowModal(true)}
+                >
+
+                  <MessageCircle className="w-12 h-12 md:w-16 md:h-16 mr-4" />
+                  Contact Us
+                </Button>
               </div>
             </div>
           </div>
@@ -126,32 +126,8 @@ export default function Footer() {
         </Container>
       </footer>
 
-      {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-12 md:p-16">
-          <div className="bg-white rounded-xl p-16 md:p-32 max-w-md w-full relative">
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-12 right-12 md:top-16 md:right-16 text-neutral-400 hover:text-neutral-600"
-            >
-              <svg className="w-20 h-20 md:w-24 md:h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-16 md:mb-24">
-              Get Started Today
-            </h3>
-            <form className="space-y-12 md:space-y-16">
-              <Input label="Name" placeholder="Your name" />
-              <Input label="Email" type="email" placeholder="your@email.com" />
-              <Input label="Company" placeholder="Your company" />
-              <Button variant="primary" size="sm" className="w-full">
-                Submit
-              </Button>
-            </form>
-          </div>
-        </div>
-      )}
+      {/* Contact Modal */}
+      <ContactModal isOpen={showModal} onClose={() => setShowModal(false)} />
 
       {/* Terms & Conditions Modal */}
       <ContentModal

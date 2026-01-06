@@ -13,13 +13,13 @@ export default function HowWeTransform() {
       title: 'Credit Analysis',
       description: 'Evaluate credit worthiness with our advanced AI analytics',
       icon: <TrendingUp className="w-24 h-24 md:w-32 md:h-32 text-gray-500" />,
-      href: '/solutions#cred-grawler',
+      href: '/solutions#risk-assessment',
     },
      {
       title: 'Compliance',
       description: 'Verify counterparty regulatory standing via automated compliance screening.',
       icon: <CheckCircle className="w-24 h-24 md:w-32 md:h-32 text-gray-500" />,
-      href: '/solutions#risk-consultancy',
+      href: '/solutions#risk-assessment',
     },
     {
       title: 'Risk Screening',
