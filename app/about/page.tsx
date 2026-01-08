@@ -144,7 +144,7 @@ function FoundersSection() {
           <Heading as="h3" size="sm" className="mb-4">
             Uday Gatty
           </Heading>
-          <p className="text-xs sm:text-sm text-neutral-500 mb-12">Co-Founder</p>
+          <p className="text-xs sm:text-sm text-neutral-500 mb-12">Founder</p>
           <p className="text-neutral-600 leading-relaxed text-xs sm:text-sm md:text-base">
             Uday brings over 20 years of experience in credit, risk management, and business development across leading banks, NBFCs, and startups including Zetwerk, KredX, Kotak Bank, IndusInd Bank, and Ashv Finance. A Chartered Accountant with a B.B.A. degree, Uday&apos;s deep understanding of both institutional banking practices and startup agility uniquely positions him to lead CredMatrix&apos;s vision of making professional-grade credit intelligence accessible to businesses of all sizes.
           </p>
@@ -160,7 +160,7 @@ function FoundersSection() {
           <Heading as="h3" size="sm" className="mb-4">
             Raman Kirdolia
           </Heading>
-          <p className="text-xs sm:text-sm text-neutral-500 mb-12">Co-Founder</p>
+          <p className="text-xs sm:text-sm text-neutral-500 mb-12">Founder</p>
           <p className="text-neutral-600 leading-relaxed text-xs sm:text-sm md:text-base">
             Raman contributes a decade of specialized expertise in credit risk, portfolio monitoring, and business finance across NBFCs, fintech companies, and B2B platforms including Zetwerk, Udaan, Flexiloans, and Ashv Finance. A Chartered Accountant with a B.Com degree and CFA Level 1 certification, Raman&apos;s background in building and managing credit portfolios for high-growth companies drives CredMatrix&apos;s focus on scalable, technology-driven solutions that address real-world business challenges.
           </p>
