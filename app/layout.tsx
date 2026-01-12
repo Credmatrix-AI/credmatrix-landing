@@ -3,6 +3,7 @@ import { Lato, Libre_Caslon_Text } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import FloatingWhatsAppButton from '@/components/ui/FloatingWhatsAppButton'
 
 const lato = Lato({
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <FloatingWhatsAppButton />
       </body>
     </html>
   )
