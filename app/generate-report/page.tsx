@@ -199,9 +199,9 @@ export default function GenerateReportPage() {
       {/* Search Section */}
       <div className="relative">
         {/* Blue background with rounded bottom */}
-        <div className="absolute top-0 left-8 right-8 md:left-32 md:right-32 lg:left-64 lg:right-64 h-[400px] bg-accent-blue rounded-b-[32px] md:rounded-b-[48px]" />
+        <div className="absolute top-0 left-8 right-8 md:left-32 md:right-32 lg:left-64 lg:right-64 h-[280px] md:h-[320px] bg-accent-blue rounded-b-[32px] md:rounded-b-[48px]" />
 
-        <Section background="white" size="lg" className="relative bg-transparent">
+        <Section background="white" size="md" className="relative bg-transparent">
           <Container>
             <div className="max-w-3xl mx-auto">
               <AnimateOnScroll animation="fadeUp">
@@ -214,96 +214,98 @@ Search and get company insights                  </p>
                 </div>
               </AnimateOnScroll>
 
-            <form onSubmit={handleSearch} className="relative mb-32">
-              <div className="flex flex-col sm:flex-row gap-12 max-w-xl mx-auto">
-                <div className="relative flex-1">
-                  <Search className="absolute left-12 md:left-16 top-1/2 -translate-y-1/2 w-16 h-16 md:w-20 md:h-20 text-neutral-400" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Enter company name, CIN, or PAN..."
-                    className="w-full pl-36 pr-12 py-10 text-sm md:pl-48 md:pr-16 md:py-12 md:text-base border border-neutral-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
-                  />
-                </div>
-                <Button type="submit" variant="primary" size="sm" className="whitespace-nowrap" disabled={isLoading}>
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="w-16 h-16 md:w-20 md:h-20 mr-8 animate-spin" />
-                      Searching...
-                    </>
-                  ) : (
-                    'Search'
-                  )}
-                </Button>
-              </div>
-            </form>
-
-            {/* Results */}
-            {hasSearched && (
-              <div className="space-y-16">
-                {isLoading ? (
-                  <div className="text-center py-32">
-                    <Loader2 className="w-32 h-32 mx-auto text-primary animate-spin" />
-                    <p className="mt-16 text-neutral-600">Searching companies...</p>
-                  </div>
-                ) : results.length > 0 ? (
-                  <>
-                    <p className="text-sm text-neutral-500">{results.length} companies found</p>
-                    <div className="space-y-12">
-                      {results.map((company) => (
-                        <div
-                          key={company.cin}
-                          onClick={() => handleCompanyClick(company.cin)}
-                          className="bg-white border border-neutral-200 rounded-xl p-20 hover:border-primary hover:shadow-md transition-all duration-200 cursor-pointer group"
-                        >
-                          <div className="flex items-start justify-between gap-16">
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-12 mb-8">
-                                <Building2 className="w-20 h-20 text-neutral-500 flex-shrink-0" />
-                                <h3 className="font-semibold text-neutral-900 truncate group-hover:text-primary transition-colors">
-                                  {company.company_name}
-                                </h3>
-                              </div>
-                              <p className="text-sm text-neutral-500 mb-12 ml-32">{company.cin}</p>
-                              <div className="flex flex-wrap gap-8 ml-32">
-                                {company.company_status && (
-                                  <span className={`text-xs px-8 py-4 rounded-full ${
-                                    company.company_status === 'Active'
-                                      ? 'bg-success/10 text-success'
-                                      : 'bg-neutral-100 text-neutral-600'
-                                  }`}>
-                                    {company.company_status}
-                                  </span>
-                                )}
-                                {company.state && (
-                                  <span className="text-xs px-8 py-4 rounded-full bg-neutral-100 text-neutral-600">
-                                    {company.city ? `${company.city}, ` : ''}{company.state}
-                                  </span>
-                                )}
-                                {company.paid_up_capital && (
-                                  <span className="text-xs px-8 py-4 rounded-full bg-neutral-100 text-neutral-700">
-                                    Paid-up: {formatCapital(company.paid_up_capital)}
-                                  </span>
-                                )}
-                              </div>
-                            </div>
-                            <ExternalLink className="w-16 h-16 text-neutral-400 group-hover:text-primary flex-shrink-0" />
-                          </div>
-                        </div>
-                      ))}
+            {/* Search with dropdown results */}
+            <div className="mx-auto px-16 md:px-0">
+              <form onSubmit={handleSearch}>
+                <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-stretch sm:items-start">
+                  {/* Search input container with dropdown */}
+                  <div className="relative flex-1 min-w-0">
+                    {/* Input */}
+                    <div className="relative">
+                      <Search className="absolute left-12 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400 z-10 pointer-events-none" />
+                      <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Search company..."
+                        className={`w-full pl-32 pr-12 py-8 md:py-12 text-sm bg-white shadow-sm focus:outline-none ${
+                          hasSearched ? 'rounded-t-xl' : 'rounded-full'
+                        }`}
+                      />
                     </div>
-                  </>
-                ) : (
-                  <div className="text-center py-32">
-                    <p className="text-neutral-600">No companies found for &quot;{searchQuery}&quot;</p>
-                    <p className="text-sm text-neutral-500 mt-8">Try searching with a different name or CIN</p>
-                  </div>
-                )}
-              </div>
-            )}
 
-           
+                    {/* Results dropdown - absolutely positioned but visually connected */}
+                    {hasSearched && (
+                      <div className="absolute left-0 right-0 top-full z-50 bg-white rounded-b-xl shadow-md max-h-[320px] overflow-y-auto">
+                        {isLoading ? (
+                          <div className="flex items-center justify-center py-16 gap-8">
+                            <Loader2 className="w-[16px] h-[16px] text-primary animate-spin" />
+                            <span className="text-sm text-neutral-500">Searching...</span>
+                          </div>
+                        ) : results.length > 0 ? (
+                          <>
+                            <div className="px-16 py-8 text-xs text-neutral-400 bg-neutral-50">
+                              {results.length} companies found
+                            </div>
+                            {results.map((company) => (
+                              <div
+                                key={company.cin}
+                                onClick={() => handleCompanyClick(company.cin)}
+                                className="px-16 py-12 hover:bg-neutral-50 cursor-pointer"
+                              >
+                                <div className="flex items-center gap-10">
+                                  <Building2 className="w-[16px] h-[16px] text-neutral-400 flex-shrink-0" />
+                                  <div className="flex-1 min-w-0">
+                                    <p className="text-sm font-medium text-neutral-800 truncate">
+                                      {company.company_name}
+                                    </p>
+                                    <div className="flex items-center gap-6 mt-2">
+                                      <span className="text-xs text-neutral-400">{company.cin}</span>
+                                      {company.company_status && (
+                                        <span className={`text-[10px] px-6 py-1 rounded ${
+                                          company.company_status === 'Active'
+                                            ? 'bg-green-50 text-green-600'
+                                            : 'bg-neutral-100 text-neutral-500'
+                                        }`}>
+                                          {company.company_status}
+                                        </span>
+                                      )}
+                                      {company.state && (
+                                        <span className="text-xs text-neutral-400">
+                                          {company.city ? `${company.city}, ` : ''}{company.state}
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
+                                  <ExternalLink className="w-[14px] h-[14px] text-neutral-300 flex-shrink-0" />
+                                </div>
+                              </div>
+                            ))}
+                          </>
+                        ) : (
+                          <div className="py-16 text-center">
+                            <p className="text-sm text-neutral-500">No companies found</p>
+                            <p className="text-xs text-neutral-400 mt-2">Try a different search term</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  <Button type="submit" variant="primary" size="sm" className="w-full sm:w-auto whitespace-nowrap" disabled={isLoading}>
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-[16px] h-[16px] mr-6 animate-spin" />
+                        Searching...
+                      </>
+                    ) : (
+                      'Search'
+                    )}
+                  </Button>
+                </div>
+              </form>
+            </div>
+
           </div>
         </Container>
       </Section>
@@ -326,7 +328,7 @@ Search and get company insights                  </p>
                 <AnimateOnScroll key={index} animation="fadeUp" delay={index * 100}>
                   <Card variant="grey" size="md">
                     <div className="flex items-start gap-16">
-                      <div className="w-40 h-40 bg-white rounded-lg flex items-center justify-center flex-shrink-0 border border-neutral-200">
+                      <div className="w-40 h-40 bg-white  flex items-center justify-center flex-shrink-0 border border-neutral-200">
                         <pillar.icon className="w-20 h-20 text-neutral-600" />
                       </div>
                       <div>
