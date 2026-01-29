@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, Compass } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/layout/Container'
@@ -94,14 +93,11 @@ export default function Hero() {
 
           {/* Product Demo Image */}
           <AnimateOnScroll animation="scale" delay={200} className="max-w-5xl mx-auto mb-80">
-            <Image
-              src="/hero-banner.png"
-              alt="CredMatrix Platform"
-              width={0}
-              height={0}
-              sizes="100vw"
+            <object
+              data="/platform-demo.svg"
+              type="image/svg+xml"
               className="w-full h-auto"
-              priority
+              aria-label="CredMatrix Platform"
             />
           </AnimateOnScroll>
 

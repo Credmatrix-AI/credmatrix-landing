@@ -1,0 +1,56 @@
+<svg width="1928" height="1215" viewBox="0 0 1928 1215" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<filter id="filter0_f_246_2436" x="15.2962" y="1026.75" width="1898.63" height="187.377" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="42.0643" result="effect1_foregroundBlur_246_2436"/>
+</filter>
+<linearGradient id="paint0_linear_246_2436" x1="-3.71795e-10" y1="1068.82" x2="1927.31" y2="1068.82" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0D1012"/>
+<stop offset="0.0295345" stop-color="#CAD4DB"/>
+<stop offset="0.0625" stop-color="#242729"/>
+<stop offset="0.133609" stop-color="#A3ACB1"/>
+<stop offset="0.865967" stop-color="#A3ACB1"/>
+<stop offset="0.941937" stop-color="#242729"/>
+<stop offset="0.971275" stop-color="#CAD4DB"/>
+<stop offset="0.996436" stop-color="#0D1012"/>
+</linearGradient>
+<linearGradient id="paint1_linear_246_2436" x1="963.655" y1="1086.02" x2="963.655" y2="1108.97" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7A7F83"/>
+<stop offset="1" stop-color="#0B0B0E"/>
+</linearGradient>
+<linearGradient id="paint2_linear_246_2436" x1="836.507" y1="1067.86" x2="1098.45" y2="1067.86" gradientUnits="userSpaceOnUse">
+<stop stop-color="#3C3C3C"/>
+<stop offset="0.317518" stop-color="#3C3C3C" stop-opacity="0"/>
+<stop offset="0.660584" stop-color="#3C3C3C" stop-opacity="0"/>
+<stop offset="1" stop-color="#444444"/>
+</linearGradient>
+<!-- ClipPath for the Screen Area -->
+<clipPath id="screenMask">
+    <path d="M196.938 51.6248C196.938 28.3933 215.77 9.56055 239.002 9.56055H1695.96C1719.19 9.56055 1738.02 28.3934 1738.02 51.6248V1019.1H196.938V51.6248Z"/>
+</clipPath>
+</defs>
+
+<!-- Drop Shadow -->
+<g filter="url(#filter0_f_246_2436)">
+<ellipse cx="964.611" cy="1120.44" rx="865.186" ry="9.56007" fill="black"/>
+</g>
+
+<!-- Main Body Frame -->
+<path d="M240.913 1.91211H1694.04C1722.55 1.91231 1745.67 25.025 1745.67 53.5361V1051.61C1745.67 1054.78 1743.1 1057.34 1739.93 1057.34H195.025C191.857 1057.34 189.289 1054.78 189.289 1051.61V53.5361C189.289 25.025 212.402 1.91224 240.913 1.91211Z" fill="#1A202C" stroke="#4A5568" stroke-width="3.82403"/>
+
+<!-- Screen Content (GIF) Masked to the Glass Area -->
+<!-- We add a black background first to ensure no transparency leak -->
+<path d="M196.938 51.6248C196.938 28.3933 215.77 9.56055 239.002 9.56055H1695.96C1719.19 9.56055 1738.02 28.3934 1738.02 51.6248V1019.1H196.938V51.6248Z" fill="black"/>
+
+<!-- The Animated GIF -->
+<image x="196.938" y="9.56055" width="1541.082" height="1009.53945" href="platform-demo.gif" clip-path="url(#screenMask)" preserveAspectRatio="xMidYMid slice" />
+
+<!-- Bottom Hinge / Base -->
+<path d="M0 1055.43C0 1053.32 1.71208 1051.61 3.82403 1051.61H1923.49C1925.6 1051.61 1927.31 1053.32 1927.31 1055.43V1086.02H0V1055.43Z" fill="#A3ACB1"/>
+<path d="M0 1055.43C0 1053.32 1.71208 1051.61 3.82403 1051.61H1923.49C1925.6 1051.61 1927.31 1053.32 1927.31 1055.43V1086.02H0V1055.43Z" fill="url(#paint0_linear_246_2436)"/>
+<path d="M0 1086.02H1927.31L1888.39 1093.87C1838.62 1103.91 1787.97 1108.97 1737.19 1108.97H187.203C131.401 1108.97 75.7667 1102.86 21.2935 1090.76L0 1086.02Z" fill="#647279"/>
+<path d="M0 1086.02H1927.31L1888.39 1093.87C1838.62 1103.91 1787.97 1108.97 1737.19 1108.97H187.203C131.401 1108.97 75.7667 1102.86 21.2935 1090.76L0 1086.02Z" fill="url(#paint1_linear_246_2436)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M805.021 1051.61C806.005 1066.56 818.442 1078.38 833.639 1078.38H1095.58C1110.78 1078.38 1123.22 1066.56 1124.2 1051.61H805.021Z" fill="#96A1A8"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M805.021 1051.61C806.005 1066.56 818.442 1078.38 833.639 1078.38H1095.58C1110.78 1078.38 1123.22 1066.56 1124.2 1051.61H805.021Z" fill="url(#paint2_linear_246_2436)"/>
+</svg>
