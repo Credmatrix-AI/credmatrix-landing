@@ -42,9 +42,13 @@
 <!-- Screen Content (GIF) Masked to the Glass Area -->
 <!-- We add a black background first to ensure no transparency leak -->
 <path d="M196.938 51.6248C196.938 28.3933 215.77 9.56055 239.002 9.56055H1695.96C1719.19 9.56055 1738.02 28.3934 1738.02 51.6248V1019.1H196.938V51.6248Z" fill="black"/>
+<foreignObject x="196.938" y="9.56055" width="1541.082" height="1009.53945" clip-path="url(#screenMask)">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%; height:100%; display:flex; flex-direction:column;">
+        <img src="hero-mockup-header.png" style="width:100%; height:auto; display:block; z-index:2;" />
+        <video src="hero-mockup-video.mov" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" style="width:100%; flex:1; object-fit:cover; object-position: top; z-index:1;" />
+    </div>
+</foreignObject>
 
-<!-- The Animated GIF -->
-<image x="196.938" y="9.56055" width="1541.082" height="1009.53945" href="platform-demo.gif" clip-path="url(#screenMask)" preserveAspectRatio="xMidYMid slice" />
 
 <!-- Bottom Hinge / Base -->
 <path d="M0 1055.43C0 1053.32 1.71208 1051.61 3.82403 1051.61H1923.49C1925.6 1051.61 1927.31 1053.32 1927.31 1055.43V1086.02H0V1055.43Z" fill="#A3ACB1"/>

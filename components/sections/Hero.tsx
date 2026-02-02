@@ -94,7 +94,7 @@ export default function Hero() {
           {/* Product Demo Image */}
           <AnimateOnScroll animation="scale" delay={200} className="max-w-5xl mx-auto mb-80">
             <object
-              data="/platform-demo.svg"
+              data="/hero-mockup.svg"
               type="image/svg+xml"
               className="w-full h-auto"
               aria-label="CredMatrix Platform"
