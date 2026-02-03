@@ -92,13 +92,18 @@ export default function Hero() {
           </AnimateOnScroll>
 
           {/* Product Demo Image */}
-          <AnimateOnScroll animation="scale" delay={200} className="max-w-5xl mx-auto mb-80">
-            <object
-              data="/hero-mockup.svg"
-              type="image/svg+xml"
-              className="w-full h-auto"
-              aria-label="CredMatrix Platform"
-            />
+          <AnimateOnScroll animation="scale" delay={200} className="w-full max-w-5xl mx-auto mb-48 md:mb-80">
+            <div
+              className="relative w-full overflow-hidden"
+              style={{ aspectRatio: '1928 / 1215' }}
+            >
+              <object
+                data="/hero-mockup.svg"
+                type="image/svg+xml"
+                className="absolute inset-0 w-full h-full"
+                aria-label="CredMatrix Platform"
+              />
+            </div>
           </AnimateOnScroll>
 
           {/* Stats - Carousel on mobile, Grid on desktop */}
