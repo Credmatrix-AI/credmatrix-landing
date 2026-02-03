@@ -45,7 +45,7 @@
 <foreignObject x="196.938" y="9.56055" width="1541.082" height="1009.53945" clip-path="url(#screenMask)">
     <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%; height:100%; display:flex; flex-direction:column;">
         <img src="hero-mockup-header.png" style="width:100%; height:auto; display:block; z-index:2;" />
-        <video src="hero-mockup-video.mov" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" style="width:100%; flex:1; object-fit:cover; object-position: top; z-index:1;" />
+        <video src="hero-mockup-video.mp4" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" style="width:100%; flex:1; object-fit:cover; object-position: top; z-index:1;" />
     </div>
 </foreignObject>
 

@@ -93,15 +93,50 @@ export default function Hero() {
 
           {/* Product Demo Image */}
           <AnimateOnScroll animation="scale" delay={200} className="w-full max-w-5xl mx-auto mb-48 md:mb-80">
-            <div
-              className="relative w-full overflow-hidden"
-              style={{ aspectRatio: '1928 / 1215' }}
-            >
-              <object
-                data="/hero-mockup.svg"
-                type="image/svg+xml"
-                className="absolute inset-0 w-full h-full"
-                aria-label="CredMatrix Platform"
+            <div className="relative w-full" style={{ paddingBottom: '63.02%' }}>
+              {/* Screen content positioned inside the frame */}
+              <div
+                className="absolute overflow-hidden bg-black"
+                style={{
+                  top: '0.79%',
+                  left: '10.21%',
+                  width: '79.93%',
+                  height: '83.09%',
+                  borderRadius: '12px 12px 0 0',
+                }}
+              >
+                <img
+                  src="/hero-mockup-header.png"
+                  alt=""
+                  className="w-full h-auto block relative z-10"
+                  style={{ position: 'relative' }}
+                />
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'top',
+                    zIndex: 1,
+                  }}
+                >
+                  <source src="/hero-mockup-video.mp4" type="video/mp4" />
+                  <source src="/hero-mockup-video.mov" type="video/quicktime" />
+                </video>
+              </div>
+              {/* Laptop frame SVG overlay */}
+              <img
+                src="/hero-mockup-frame.svg"
+                alt="CredMatrix Platform"
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                style={{ zIndex: 20 }}
               />
             </div>
           </AnimateOnScroll>
