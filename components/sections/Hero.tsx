@@ -105,12 +105,6 @@ export default function Hero() {
                   borderRadius: '12px 12px 0 0',
                 }}
               >
-                <img
-                  src="/hero-mockup-header.png"
-                  alt=""
-                  className="w-full h-auto block relative z-10"
-                  style={{ position: 'relative' }}
-                />
                 <video
                   autoPlay
                   loop
