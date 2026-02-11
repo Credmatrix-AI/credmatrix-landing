@@ -4,10 +4,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { LogIn, Menu, X } from 'lucide-react'
+import { LogIn, Menu, X, FileText } from 'lucide-react'
 import Container from './Container'
 import Button from '@/components/ui/Button'
-import WhatsAppIcon from '@/components/icons/WhatsAppIcon'
 import { NAV_LINKS } from '@/constants'
 import { cn } from '@/lib/utils'
 
@@ -49,19 +48,21 @@ export default function Header() {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="flex items-center gap-8 md:gap-16">
-            <a href="https://wa.me/919686866005" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
-                <WhatsAppIcon className="w-16 h-16 mr-8" />
-                Speak with Risk Expert
-              </Button>
-            </a>
-            <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
-                <LogIn className="w-16 h-16 mr-8" />
-                Login
-                 {/* / Signup */}
-              </Button>
+          <div className="flex items-center gap-12 md:gap-16">
+            <Link href="/generate-report" className="hidden lg:block">
+              <div
+                className="group inline-flex items-center gap-8 bg-gradient-to-r from-primary to-primary-dark text-white px-24 py-12 rounded-full font-medium text-sm transition-all duration-200 animate-glow"
+              >
+                <FileText className="w-16 h-16" />
+                <span>Generate Report</span>
+                <Image src="/icons/free.svg" alt="Free" width={42} height={21} className="h-[18px] w-auto ml-4" />
+              </div>
+            </Link>
+            <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="hidden lg:block">
+              <div className="inline-flex items-center gap-8 border-2 border-primary text-primary px-24 py-12 rounded-full font-medium text-sm transition-all duration-200 hover:bg-primary hover:text-white">
+                <LogIn className="w-16 h-16" />
+                <span>Login</span>
+              </div>
             </a>
 
             {/* Mobile Menu Button */}
@@ -98,19 +99,28 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
-              <div className="flex flex-col gap-8 pt-8 border-t border-neutral-200">
-                <a href="https://wa.me/919686866005" target="_blank" rel="noopener noreferrer" className="w-full">
-                  <Button variant="outline" size="sm" className="w-full justify-center">
-                    <WhatsAppIcon className="w-16 h-16 mr-8" />
-                    Speak with Risk Expert
-                  </Button>
-                </a>
+              <div className="flex flex-col gap-12 pt-12 border-t border-neutral-200">
+                <Link href="/generate-report" onClick={() => setMobileMenuOpen(false)} className="w-full">
+                  <div className="relative">
+                    <div
+                      className="absolute -inset-[2px] rounded-full animate-border-spin opacity-75"
+                      style={{
+                        background: 'linear-gradient(90deg, #2563eb, #ec4899, #8b5cf6, #2563eb)',
+                        backgroundSize: '300% 100%',
+                      }}
+                    />
+                    <div className="relative flex items-center justify-center gap-8 w-full bg-gradient-to-r from-primary to-primary-dark text-white py-12 rounded-full font-medium text-sm">
+                      <FileText className="w-16 h-16" />
+                      <span>Generate Report</span>
+                      <Image src="/icons/free.svg" alt="Free" width={42} height={21} className="h-[18px] w-auto" />
+                    </div>
+                  </div>
+                </Link>
                 <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="w-full">
-                  <Button variant="primary" size="sm" className="w-full justify-center">
-                    <LogIn className="w-16 h-16 mr-8" />
-                    Login
-                     {/* / Signup */}
-                  </Button>
+                  <div className="flex items-center justify-center gap-8 w-full border-2 border-primary text-primary py-12 rounded-full font-medium text-sm hover:bg-primary hover:text-white transition-all duration-200">
+                    <LogIn className="w-16 h-16" />
+                    <span>Login</span>
+                  </div>
                 </a>
               </div>
             </div>

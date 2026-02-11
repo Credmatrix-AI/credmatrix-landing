@@ -66,6 +66,7 @@ const config: Config = {
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out',
         'slide-up': 'slideUp 0.3s ease-out',
+        'glow': 'glow 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -75,6 +76,10 @@ const config: Config = {
         slideUp: {
           '0%': { transform: 'translateY(10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        glow: {
+          '0%, 100%': { boxShadow: '0 0 8px 2px rgba(37, 99, 235, 0.4)' },
+          '50%': { boxShadow: '0 0 16px 4px rgba(37, 99, 235, 0.6)' },
         },
       },
     },
