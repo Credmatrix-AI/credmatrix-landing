@@ -4,7 +4,6 @@ import Container from '@/components/layout/Container'
 import Section from '@/components/layout/Section'
 import Heading from '@/components/ui/Heading'
 import ProductShowcase from '@/components/sections/ProductShowcase'
-import CTA from '@/components/sections/CTA'
 import AnimateOnScroll from '@/components/shared/AnimateOnScroll'
 import { PRODUCT_SECTIONS } from '@/constants'
 
@@ -30,7 +29,6 @@ export default function SolutionsPage() {
         <ProductShowcase key={index} section={section} index={index} />
       ))}
 
-      <CTA />
     </>
   )
 }

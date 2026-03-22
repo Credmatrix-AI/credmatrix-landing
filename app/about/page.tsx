@@ -5,7 +5,6 @@ import { motion, useInView } from 'framer-motion'
 import Container from '@/components/layout/Container'
 import Section from '@/components/layout/Section'
 import Heading from '@/components/ui/Heading'
-import CTA from '@/components/sections/CTA'
 import {
   EASING,
   DURATION,
@@ -288,7 +287,6 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <CTA />
     </>
   )
 }

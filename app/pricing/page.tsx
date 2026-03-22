@@ -7,7 +7,6 @@ import Section from '@/components/layout/Section'
 import Heading from '@/components/ui/Heading'
 import PricingCard from '@/components/shared/PricingCard'
 import FAQAccordion from '@/components/shared/FAQAccordion'
-import CTA from '@/components/sections/CTA'
 import { PRICING_TIERS, FAQ_ITEMS } from '@/constants'
 import { cn } from '@/lib/utils'
 import {
@@ -95,7 +94,6 @@ export default function PricingPage() {
         </Container>
       </Section>
 
-      <CTA />
     </>
   )
 }
