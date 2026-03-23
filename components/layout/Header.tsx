@@ -56,13 +56,15 @@ export default function Header() {
                 Speak with Risk Expert
               </Button>
             </a>
-            <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
+            <div className="relative group hidden lg:block">
+              <Button variant="primary" size="sm" className="inline-flex whitespace-nowrap opacity-75 cursor-not-allowed">
                 <LogIn className="w-16 h-16 mr-8" />
                 Login
-                 {/* / Signup */}
               </Button>
-            </a>
+              <span className="absolute top-full mt-4 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-8 py-4 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                Coming Soon
+              </span>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -105,13 +107,15 @@ export default function Header() {
                     Speak with Risk Expert
                   </Button>
                 </a>
-                <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="w-full">
-                  <Button variant="primary" size="sm" className="w-full justify-center">
+                <div className="relative group w-full">
+                  <Button variant="primary" size="sm" className="w-full justify-center opacity-75 cursor-not-allowed">
                     <LogIn className="w-16 h-16 mr-8" />
                     Login
-                     {/* / Signup */}
                   </Button>
-                </a>
+                  <span className="absolute top-full mt-4 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-8 py-4 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                    Coming Soon
+                  </span>
+                </div>
               </div>
             </div>
           </nav>

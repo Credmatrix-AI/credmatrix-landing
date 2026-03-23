@@ -106,18 +106,21 @@ export default function PricingCard({ tier }: PricingCardProps) {
       </div>
 
       {/* CTA Button */}
-      <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="w-full mt-auto">
+      <div className="relative group w-full mt-auto">
         <Button
           variant={style.button}
           size="md"
           className={cn(
-            'w-full',
+            'w-full opacity-75 cursor-not-allowed',
             tier.highlighted && 'shadow-lg shadow-primary/25'
           )}
         >
           {tier.ctaText}
         </Button>
-      </a>
+        <span className="absolute top-full mt-4 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-8 py-4 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+          Coming Soon
+        </span>
+      </div>
     </motion.div>
   )
 }

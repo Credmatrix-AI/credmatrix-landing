@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import Container from '@/components/layout/Container'
@@ -139,9 +138,12 @@ export default function ProductShowcase({ section, index = 0 }: ProductShowcaseP
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: DURATION.fast, delay: 0.7, ease: EASING }}
             >
-              <Link href="https://app.credmatrix.ai/auth/login">
-                <Button variant="outline" size="sm">Explore</Button>
-              </Link>
+              <div className="relative group inline-block">
+                <Button variant="outline" size="sm" className="opacity-75 cursor-not-allowed">Explore</Button>
+                <span className="absolute top-full mt-4 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-8 py-4 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                  Coming Soon
+                </span>
+              </div>
               {/* <Button variant="ghost" size="sm" className="text-neutral-600 hover:text-[#0E6EBE]">
                 Watch Tutorial
               </Button> */}
