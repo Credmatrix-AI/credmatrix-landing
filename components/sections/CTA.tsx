@@ -24,14 +24,11 @@ export default function CTA() {
               embeds intelligence, precision, and security directly into your assessment
               process.
             </p>
-            <div className="relative group inline-block">
-              <Button variant="primary" size="sm" className="opacity-75 cursor-not-allowed">
+            <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="sm" className="hover:scale-105 transition-transform">
                 Get Started <ArrowRight className="w-16 h-16 md:w-20 md:h-20 ml-4 md:ml-8" />
               </Button>
-              <span className="absolute top-full mt-4 left-1/2 -translate-x-1/2 bg-neutral-800 text-white text-xs px-8 py-4 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
-                Coming Soon
-              </span>
-            </div>
+            </a>
           </div>
         </AnimateOnScroll>
       </Container>
