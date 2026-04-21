@@ -83,7 +83,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: 'Can customized solutions be provided?',
-    answer: 'Email our Risk Experts at: contact@credmatrix.ai\nSchedule a consultation by clicking [this link]\n\nOur CredMatrix team will work with you to develop a solution that meets your unique requirements.',
+    answer: 'Email our Risk Experts at: contact@credmatrix.ai\nSchedule a consultation by clicking {{contact-form:this link}}\n\nOur CredMatrix team will work with you to develop a solution that meets your unique requirements.',
   },
   {
     question: 'What are the sources of information used for assessment?',
