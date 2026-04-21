@@ -91,7 +91,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: 'How is confidentiality maintained for user information and portfolio monitoring data?',
-    answer: 'We ensure the utmost confidentiality of all information shared or uploaded by users on the portal. Our commitment to data privacy includes:\n- Robust security protocols and encryption standards\n- Strict confidentiality clauses outlined in our Terms & Conditions\n- Compliance with applicable data protection regulations\n\nYou can review our detailed confidentiality policy in our [Terms & Conditions].',
+    answer: 'We ensure the utmost confidentiality of all information shared or uploaded by users on the portal. Our commitment to data privacy includes:\n- Robust security protocols and encryption standards\n- Strict confidentiality clauses outlined in our Terms & Conditions\n- Compliance with applicable data protection regulations\n\nYou can review our detailed confidentiality policy in our {{terms:Terms & Conditions}}.',
   },
   {
     question: 'Is there any manual intervention in the assessment process?',
@@ -111,7 +111,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: 'How can I get support if I need help?',
-    answer: 'Our dedicated support team is here to assist you. For any questions, technical support, or assistance:\n\nContact us by clicking here or email us directly at contact@credmatrix.ai\n\nWe strive to respond to all inquiries promptly and provide the support you need to maximize your experience with CredMatrix.',
+    answer: 'Our dedicated support team is here to assist you. For any questions, technical support, or assistance:\n\nContact us by clicking {{contact-form:here}} or email us directly at contact@credmatrix.ai\n\nWe strive to respond to all inquiries promptly and provide the support you need to maximize your experience with CredMatrix.',
   },
 ]
 

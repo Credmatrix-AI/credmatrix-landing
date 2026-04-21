@@ -4,33 +4,50 @@ import { Fragment, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FAQItem } from '@/types'
 import ContactModal from '@/components/ui/ContactModal'
+import ContentModal from '@/components/ui/ContentModal'
 
 interface FAQAccordionProps {
   items: FAQItem[]
 }
 
-function renderAnswer(answer: string, onContactClick: () => void) {
-  const regex = /\{\{contact-form:([^}]+)\}\}/g
+const LINK_CLASS = 'text-primary underline hover:no-underline'
+const TOKEN_REGEX = /\{\{contact-form:([^}]+)\}\}|\{\{terms:([^}]+)\}\}|([\w.+-]+@[\w-]+\.[\w.-]+)/g
+
+function renderAnswer(
+  answer: string,
+  onContactClick: () => void,
+  onTermsClick: () => void
+) {
   const nodes: React.ReactNode[] = []
   let lastIndex = 0
   let match: RegExpExecArray | null
   let key = 0
 
-  while ((match = regex.exec(answer)) !== null) {
+  while ((match = TOKEN_REGEX.exec(answer)) !== null) {
     if (match.index > lastIndex) {
       nodes.push(<Fragment key={key++}>{answer.slice(lastIndex, match.index)}</Fragment>)
     }
-    nodes.push(
-      <button
-        key={key++}
-        type="button"
-        onClick={onContactClick}
-        className="text-primary underline hover:no-underline"
-      >
-        {match[1]}
-      </button>
-    )
-    lastIndex = regex.lastIndex
+    if (match[1] !== undefined) {
+      nodes.push(
+        <button key={key++} type="button" onClick={onContactClick} className={LINK_CLASS}>
+          {match[1]}
+        </button>
+      )
+    } else if (match[2] !== undefined) {
+      nodes.push(
+        <button key={key++} type="button" onClick={onTermsClick} className={LINK_CLASS}>
+          {match[2]}
+        </button>
+      )
+    } else {
+      const email = match[3]
+      nodes.push(
+        <a key={key++} href={`mailto:${email}`} className={LINK_CLASS}>
+          {email}
+        </a>
+      )
+    }
+    lastIndex = TOKEN_REGEX.lastIndex
   }
   if (lastIndex < answer.length) {
     nodes.push(<Fragment key={key++}>{answer.slice(lastIndex)}</Fragment>)
@@ -41,6 +58,7 @@ function renderAnswer(answer: string, onContactClick: () => void) {
 export default function FAQAccordion({ items }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [showContactModal, setShowContactModal] = useState(false)
+  const [showTermsModal, setShowTermsModal] = useState(false)
 
   return (
     <>
@@ -86,7 +104,11 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
                 >
                   <div className="px-16 pb-16 md:px-24 md:pb-24 pt-4">
                     <p className="text-xs sm:text-sm text-neutral-600 pl-24 md:pl-32 whitespace-pre-line">
-                      {renderAnswer(item.answer, () => setShowContactModal(true))}
+                      {renderAnswer(
+                        item.answer,
+                        () => setShowContactModal(true),
+                        () => setShowTermsModal(true)
+                      )}
                     </p>
                   </div>
                 </motion.div>
@@ -96,6 +118,12 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
         ))}
       </div>
       <ContactModal isOpen={showContactModal} onClose={() => setShowContactModal(false)} />
+      <ContentModal
+        isOpen={showTermsModal}
+        onClose={() => setShowTermsModal(false)}
+        title="Terms of Services"
+        contentUrl="/content/terms-of-services.md"
+      />
     </>
   )
 }
