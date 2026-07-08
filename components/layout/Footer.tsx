@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Phone, MessageCircle, IndianRupee } from 'lucide-react'
+import { Mail, Phone, MessageCircle } from 'lucide-react'
 import Container from './Container'
 import Button from '@/components/ui/Button'
 import ContentModal from '@/components/ui/ContentModal'
@@ -83,23 +83,12 @@ export default function Footer() {
                 We&apos;re here to help. Chat to our team today.
               </p>
               <div className="flex flex-col sm:flex-row gap-8 md:gap-12">
-                <Link href="/pricing" className="flex-1">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full whitespace-nowrap border-white text-white hover:bg-white hover:text-secondary"
-                  >
-                    <IndianRupee className="w-12 h-12 md:w-16 md:h-16 mr-4" />
-                    View Pricing
-                  </Button>
-                </Link>
                 <Button
                   variant="primary"
                   size="sm"
                   className="flex-1 whitespace-nowrap"
                   onClick={() => setShowModal(true)}
                 >
-
                   <MessageCircle className="w-12 h-12 md:w-16 md:h-16 mr-4" />
                   Contact Us
                 </Button>

@@ -1,11 +1,10 @@
-import { NavLink, PricingTier, FAQItem, StatItem, ProductSection } from '@/types'
+import { NavLink, FAQItem, StatItem, ProductSection } from '@/types'
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Solutions', href: '/solutions' },
   { label: 'About', href: '/about' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'FAQ', href: '/pricing#faq' },
+  { label: 'FAQ', href: '/faq' },
 ]
 
 export const FOOTER_LINKS = {
@@ -13,8 +12,7 @@ export const FOOTER_LINKS = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'About', href: '/about' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'FAQ', href: '/pricing#faq' },
+    { label: 'FAQ', href: '/faq' },
   ],
 }
 
@@ -22,50 +20,6 @@ export const HOME_STATS: StatItem[] = [
   { value: '10,000+', label: 'Companies Analysed' },
   { value: '₹ 600 Cr. +', label: 'Limit Recommended' },
   { value: '125+', label: 'Risk Parameters' },
-]
-
-export const PRICING_TIERS: PricingTier[] = [
-  {
-    name: 'Single',
-    price: '₹749',
-    description: 'Perfect for small tasks and one-time credit checks',
-    features: [
-      'Self Search',
-      'Early Warning System (Limited)',
-    ],
-    variant: 'grey',
-    ctaText: 'Buy Now',
-    icon: 'user',
-  },
-  {
-    name: 'Bulk',
-    price: '₹7,490',
-    description: 'Ideal for teams needing regular credit assessments',
-    features: [
-      'Self Search',
-      'Web Search',
-      'Early Warning System (Limited)',
-    ],
-    highlighted: true,
-    variant: 'blue',
-    ctaText: 'Buy Now',
-    icon: 'users',
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    description: 'Full-featured solution for large organizations',
-    features: [
-      'Self Search',
-      'Web Search',
-      'Early Warning System',
-      'Monthly update of all data points',
-      'Risk Expert Consultancy',
-    ],
-    variant: 'pink',
-    ctaText: 'Contact Us',
-    icon: 'building',
-  },
 ]
 
 export const FAQ_ITEMS: FAQItem[] = [
@@ -104,10 +58,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'What is the accuracy of the data and the assessment results on the portal?',
     answer: 'Data Accuracy:\nOur data is sourced from authoritative government portals (such as MCA and GST Portal) or directly provided by users, ensuring there is no compromise in data quality and reliability.\n\nAssessment Accuracy:\nOur scoring models and assessment methodologies have been developed and rigorously tested by seasoned risk professionals with decades of combined experience across:\n- Banks and Financial Institutions\n- Non-Banking Financial Companies (NBFCs)\n- Startups and Fintech Companies\n- Corporate Enterprises\n\nThese models have been validated across numerous entities spanning different industries and business categories, ensuring robust, reliable, and industry-tested assessment results you can trust.',
-  },
-  {
-    question: 'What is the pricing structure?',
-    answer: 'For detailed information about our pricing plans and packages, please visit our Pricing Page.\n\nOur transparent pricing structure is designed to accommodate businesses of all sizes, from startups to enterprises. If you have specific requirements or need a custom quote, feel free to reach out to our team.',
   },
   {
     question: 'How can I get support if I need help?',

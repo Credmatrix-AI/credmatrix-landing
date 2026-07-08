@@ -27,18 +27,6 @@ export interface FeatureCardProps {
   linkText?: string
 }
 
-export interface PricingTier {
-  name: string
-  price: string
-  period?: string
-  description: string
-  features: string[]
-  highlighted?: boolean
-  variant: 'grey' | 'blue' | 'pink'
-  ctaText: string
-  icon: string
-}
-
 export interface FAQItem {
   question: string
   answer: string
