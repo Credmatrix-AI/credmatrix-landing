@@ -12,6 +12,7 @@ export const FOOTER_LINKS = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'About', href: '/about' },
+    { label: 'Sample Report', href: '/sample-report' },
     { label: 'FAQ', href: '/faq' },
   ],
 }
