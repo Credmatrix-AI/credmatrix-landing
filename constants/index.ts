@@ -4,6 +4,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Solutions', href: '/solutions' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
   { label: 'FAQ', href: '/faq' },
 ]
 
@@ -12,6 +13,7 @@ export const FOOTER_LINKS = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'About', href: '/about' },
+    { label: 'Blog', href: '/blog' },
     { label: 'FAQ', href: '/faq' },
   ],
   legal: [
