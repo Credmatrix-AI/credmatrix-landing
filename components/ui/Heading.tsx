@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 
-type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-type HeadingSize = 'xl' | 'lg' | 'md' | 'sm' | 'xs'
+export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+export type HeadingSize = 'xl' | 'lg' | 'md' | 'sm' | 'xs'
 type HeadingAlign = 'left' | 'center' | 'right'
 
 interface HeadingProps {
@@ -12,7 +12,11 @@ interface HeadingProps {
   children: React.ReactNode
 }
 
-const sizeClasses: Record<HeadingSize, string> = {
+/**
+ * Exported so long-form content (blog bodies, legal pages) can render raw
+ * heading tags on the same type scale instead of redefining it.
+ */
+export const HEADING_SIZE_CLASSES: Record<HeadingSize, string> = {
   xl: 'text-2xl sm:text-3xl md:text-3xl lg:text-4xl',      // Page titles
   lg: 'text-xl sm:text-2xl md:text-2xl lg:text-3xl',       // Section titles
   md: 'text-lg sm:text-xl md:text-2xl',                // Subsection titles
@@ -50,7 +54,7 @@ export default function Heading({
     <Tag
       className={cn(
         'text-secondary',
-        sizeClasses[resolvedSize],
+        HEADING_SIZE_CLASSES[resolvedSize],
         alignClasses[align],
         className
       )}

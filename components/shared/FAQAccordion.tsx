@@ -1,10 +1,10 @@
 'use client'
 
 import { Fragment, useState } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FAQItem } from '@/types'
 import ContactModal from '@/components/ui/ContactModal'
-import ContentModal from '@/components/ui/ContentModal'
 
 interface FAQAccordionProps {
   items: FAQItem[]
@@ -13,11 +13,7 @@ interface FAQAccordionProps {
 const LINK_CLASS = 'text-primary underline hover:no-underline'
 const TOKEN_REGEX = /\{\{contact-form:([^}]+)\}\}|\{\{terms:([^}]+)\}\}|([\w.+-]+@[\w-]+\.[\w.-]+)/g
 
-function renderAnswer(
-  answer: string,
-  onContactClick: () => void,
-  onTermsClick: () => void
-) {
+function renderAnswer(answer: string, onContactClick: () => void) {
   const nodes: React.ReactNode[] = []
   let lastIndex = 0
   let match: RegExpExecArray | null
@@ -35,9 +31,9 @@ function renderAnswer(
       )
     } else if (match[2] !== undefined) {
       nodes.push(
-        <button key={key++} type="button" onClick={onTermsClick} className={LINK_CLASS}>
+        <Link key={key++} href="/terms" className={LINK_CLASS}>
           {match[2]}
-        </button>
+        </Link>
       )
     } else {
       const email = match[3]
@@ -58,7 +54,6 @@ function renderAnswer(
 export default function FAQAccordion({ items }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [showContactModal, setShowContactModal] = useState(false)
-  const [showTermsModal, setShowTermsModal] = useState(false)
 
   return (
     <>
@@ -104,11 +99,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
                 >
                   <div className="px-16 pb-16 md:px-24 md:pb-24 pt-4">
                     <p className="text-xs sm:text-sm text-neutral-600 pl-24 md:pl-32 whitespace-pre-line">
-                      {renderAnswer(
-                        item.answer,
-                        () => setShowContactModal(true),
-                        () => setShowTermsModal(true)
-                      )}
+                      {renderAnswer(item.answer, () => setShowContactModal(true))}
                     </p>
                   </div>
                 </motion.div>
@@ -118,12 +109,6 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
         ))}
       </div>
       <ContactModal isOpen={showContactModal} onClose={() => setShowContactModal(false)} />
-      <ContentModal
-        isOpen={showTermsModal}
-        onClose={() => setShowTermsModal(false)}
-        title="Terms of Services"
-        contentUrl="/content/terms-of-services.md"
-      />
     </>
   )
 }

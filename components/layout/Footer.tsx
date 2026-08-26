@@ -6,14 +6,11 @@ import Image from 'next/image'
 import { Mail, Phone, MessageCircle } from 'lucide-react'
 import Container from './Container'
 import Button from '@/components/ui/Button'
-import ContentModal from '@/components/ui/ContentModal'
 import ContactModal from '@/components/ui/ContactModal'
 import { FOOTER_LINKS } from '@/constants'
 
 export default function Footer() {
   const [showModal, setShowModal] = useState(false)
-  const [showTermsModal, setShowTermsModal] = useState(false)
-  const [showPrivacyModal, setShowPrivacyModal] = useState(false)
 
   return (
     <>
@@ -100,18 +97,15 @@ export default function Footer() {
           <div className="mt-32 md:mt-48 pt-16 md:pt-24 border-t border-neutral-700 flex flex-col md:flex-row items-center justify-between gap-12 text-xs sm:text-sm text-gray-300">
             <p>&copy; 2026 CredMatrix. All rights reserved.</p>
             <div className="flex items-center gap-16">
-              <button
-                onClick={() => setShowTermsModal(true)}
-                className="hover:text-white transition-colors"
-              >
-                Terms & Conditions
-              </button>
-              <button
-                onClick={() => setShowPrivacyModal(true)}
-                className="hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </button>
+              {FOOTER_LINKS.legal.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
         </Container>
@@ -119,22 +113,6 @@ export default function Footer() {
 
       {/* Contact Modal */}
       <ContactModal isOpen={showModal} onClose={() => setShowModal(false)} />
-
-      {/* Terms & Conditions Modal */}
-      <ContentModal
-        isOpen={showTermsModal}
-        onClose={() => setShowTermsModal(false)}
-        title="Terms of Services"
-        contentUrl="/content/terms-of-services.md"
-      />
-
-      {/* Privacy Policy Modal */}
-      <ContentModal
-        isOpen={showPrivacyModal}
-        onClose={() => setShowPrivacyModal(false)}
-        title="Privacy Policy"
-        contentUrl="/content/privacy-policy.md"
-      />
     </>
   )
 }

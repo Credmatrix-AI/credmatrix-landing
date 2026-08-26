@@ -14,6 +14,10 @@ export const FOOTER_LINKS = {
     { label: 'About', href: '/about' },
     { label: 'FAQ', href: '/faq' },
   ],
+  legal: [
+    { label: 'Terms & Conditions', href: '/terms' },
+    { label: 'Privacy Policy', href: '/privacy' },
+  ],
 }
 
 export const HOME_STATS: StatItem[] = [
