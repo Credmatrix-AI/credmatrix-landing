@@ -5,6 +5,7 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CalFloatingButton from '@/components/ui/CalFloatingButton'
+import AttributionTracker from '@/components/shared/AttributionTracker'
 
 const lato = Lato({
   subsets: ['latin'],
@@ -19,6 +20,7 @@ const libreCaslonText = Libre_Caslon_Text({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://credmatrix.ai'),
   title: 'CredMatrix - Financial Due Diligence Intelligence',
   description: 'Transforming financial due-diligence intelligence into accessible, affortable & instant resource for every decision - maker',
 }
@@ -35,6 +37,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <CalFloatingButton />
+        <AttributionTracker />
         <Analytics />
       </body>
     </html>

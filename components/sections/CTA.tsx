@@ -6,6 +6,7 @@ import Section from '@/components/layout/Section'
 import Heading from '@/components/ui/Heading'
 import Button from '@/components/ui/Button'
 import AnimateOnScroll from '@/components/shared/AnimateOnScroll'
+import AttributedLink from '@/components/shared/AttributedLink'
 
 export default function CTA() {
   return (
@@ -24,11 +25,16 @@ export default function CTA() {
               embeds intelligence, precision, and security directly into your assessment
               process.
             </p>
-            <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer">
+            <AttributedLink
+              href="https://app.credmatrix.ai/"
+              event="get_started_click"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="primary" size="sm" className="hover:scale-105 transition-transform">
                 Get Started <ArrowRight className="w-16 h-16 md:w-20 md:h-20 ml-4 md:ml-8" />
               </Button>
-            </a>
+            </AttributedLink>
           </div>
         </AnimateOnScroll>
       </Container>

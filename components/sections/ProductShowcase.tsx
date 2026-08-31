@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import Container from '@/components/layout/Container'
@@ -11,6 +10,7 @@ import Card from '@/components/ui/Card'
 import Heading from '@/components/ui/Heading'
 import { ProductSection } from '@/types'
 import { cn } from '@/lib/utils'
+import AttributedLink from '@/components/shared/AttributedLink'
 import {
   EASING,
   DURATION,
@@ -139,9 +139,14 @@ export default function ProductShowcase({ section, index = 0 }: ProductShowcaseP
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: DURATION.fast, delay: 0.7, ease: EASING }}
             >
-              <Link href="https://app.credmatrix.ai/">
+              <AttributedLink
+                href="https://app.credmatrix.ai/"
+                event="explore_click"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="outline" size="sm">Explore</Button>
-              </Link>
+              </AttributedLink>
               {/* <Button variant="ghost" size="sm" className="text-neutral-600 hover:text-[#0E6EBE]">
                 Watch Tutorial
               </Button> */}

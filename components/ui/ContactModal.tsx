@@ -5,6 +5,8 @@ import Modal from './Modal'
 import Input from './Input'
 import Button from './Button'
 import { Loader2, CheckCircle } from 'lucide-react'
+import { track } from '@vercel/analytics'
+import { formatAttributionForEmail, getAttributionParams } from '@/lib/utm'
 
 interface ContactModalProps {
   isOpen: boolean
@@ -30,6 +32,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     try {
       const emailjs = (await import('@emailjs/browser')).default
+      const attribution = formatAttributionForEmail()
 
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -38,10 +41,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           name: formData.name,
           organisation: formData.organisation,
           email: formData.email,
-          message: `${formData.query.trim() || 'Hi, I was exploring your website and would like to know more about your services.'}\n\nBest regards,\n${formData.name}\n${formData.organisation}\nPhone: ${formData.phone}`,
+          message: `${formData.query.trim() || 'Hi, I was exploring your website and would like to know more about your services.'}\n\nBest regards,\n${formData.name}\n${formData.organisation}\nPhone: ${formData.phone}\n\n${attribution}`,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
+
+      track('contact_form_submit', getAttributionParams())
 
       setIsSuccess(true)
       setFormData({ name: '', organisation: '', email: '', phone: '', query: '' })
