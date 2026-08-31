@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
 import { colors } from './lib/colors'
 
 const config: Config = {
@@ -67,6 +68,32 @@ const config: Config = {
         'fade-in': 'fadeIn 0.3s ease-in-out',
         'slide-up': 'slideUp 0.3s ease-out',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': colors.neutral[600],
+            '--tw-prose-headings': colors.secondary.DEFAULT,
+            '--tw-prose-links': colors.primary.DEFAULT,
+            '--tw-prose-bold': colors.secondary.DEFAULT,
+            '--tw-prose-quotes': colors.neutral[700],
+            '--tw-prose-quote-borders': colors.primary.DEFAULT,
+            '--tw-prose-th-borders': colors.neutral[300],
+            '--tw-prose-td-borders': colors.neutral[200],
+            maxWidth: 'none',
+            h2: { fontFamily: 'Libre Caslon Text, Georgia, serif' },
+            h3: { fontFamily: 'Libre Caslon Text, Georgia, serif' },
+            a: { textUnderlineOffset: '3px' },
+            'code::before': { content: '""' },
+            'code::after': { content: '""' },
+            code: {
+              backgroundColor: colors.neutral[100],
+              padding: '0.15rem 0.35rem',
+              borderRadius: '0.25rem',
+              fontWeight: '500',
+            },
+          },
+        },
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
@@ -79,7 +106,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 }
 
 export default config
