@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -8,12 +8,23 @@ import { LogIn, Menu, X } from 'lucide-react'
 import Container from './Container'
 import Button from '@/components/ui/Button'
 import WhatsAppIcon from '@/components/icons/WhatsAppIcon'
+import AttributedLink from '@/components/shared/AttributedLink'
+import { track } from '@vercel/analytics'
+import { buildWhatsAppUrl, getAttributionParams } from '@/lib/utm'
 import { NAV_LINKS } from '@/constants'
 import { cn } from '@/lib/utils'
+
+const WHATSAPP_NUMBER = '919686866005'
+const WHATSAPP_MESSAGE = 'Hi CredMatrix, I would like to speak with a risk expert.'
 
 export default function Header() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [whatsappUrl, setWhatsappUrl] = useState(`https://wa.me/${WHATSAPP_NUMBER}`)
+
+  useEffect(() => {
+    setWhatsappUrl(buildWhatsAppUrl(WHATSAPP_NUMBER, WHATSAPP_MESSAGE))
+  }, [pathname])
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-neutral-200">
@@ -22,7 +33,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/credmatrix-logo.svg"
+              src="/brand/credmatrix-logo.svg"
               alt="CredMatrix"
               width={150}
               height={40}
@@ -50,18 +61,28 @@ export default function Header() {
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-8 md:gap-16">
-            <a href="https://wa.me/919686866005" target="_blank" rel="noopener noreferrer">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track('whatsapp_click', getAttributionParams())}
+            >
               <Button variant="outline" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
                 <WhatsAppIcon className="w-16 h-16 mr-8" />
                 Speak with Risk Expert
               </Button>
             </a>
-            <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer">
+            <AttributedLink
+              href="https://app.credmatrix.ai/"
+              event="login_click"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="primary" size="sm" className="hidden lg:inline-flex whitespace-nowrap">
                 <LogIn className="w-16 h-16 mr-8" />
                 Login
               </Button>
-            </a>
+            </AttributedLink>
 
             {/* Mobile Menu Button */}
             <button
@@ -98,18 +119,30 @@ export default function Header() {
                 </Link>
               ))}
               <div className="flex flex-col gap-8 pt-8 border-t border-neutral-200">
-                <a href="https://wa.me/919686866005" target="_blank" rel="noopener noreferrer" className="w-full">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                  onClick={() => track('whatsapp_click', getAttributionParams())}
+                >
                   <Button variant="outline" size="sm" className="w-full justify-center">
                     <WhatsAppIcon className="w-16 h-16 mr-8" />
                     Speak with Risk Expert
                   </Button>
                 </a>
-                <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="w-full">
+                <AttributedLink
+                  href="https://app.credmatrix.ai/"
+                  event="login_click"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
                   <Button variant="primary" size="sm" className="w-full justify-center">
                     <LogIn className="w-16 h-16 mr-8" />
                     Login
                   </Button>
-                </a>
+                </AttributedLink>
               </div>
             </div>
           </nav>

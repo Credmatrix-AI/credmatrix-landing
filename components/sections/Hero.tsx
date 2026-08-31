@@ -9,6 +9,7 @@ import Button from '@/components/ui/Button'
 import AnimateOnScroll from '@/components/shared/AnimateOnScroll'
 import RotatingText from '@/components/shared/RotatingText'
 import { HOME_STATS } from '@/constants'
+import AttributedLink from '@/components/shared/AttributedLink'
 
 const rotatingWords = ['accessible', 'affordable', 'instant']
 
@@ -76,12 +77,18 @@ export default function Hero() {
               resource for every decision - maker
             </h1>
             <div className="flex flex-col sm:flex-row justify-start md:justify-center gap-12 sm:gap-16">
-              <a href="https://app.credmatrix.ai/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <AttributedLink
+                href="https://app.credmatrix.ai/"
+                event="get_started_click"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
                 <Button variant="primary" size="sm" className="w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-transform">
                   Get Started
                   <ArrowRight className="w-16 h-16 md:w-6 md:h-6 ml-4 md:ml-8" />
                 </Button>
-              </a>
+              </AttributedLink>
               <Link href="/solutions" className="w-full sm:w-auto">
                 <Button variant="outline" size="sm" className="w-full sm:w-auto whitespace-nowrap hover:scale-105 transition-transform">
                   <Compass className="w-16 h-16 md:w-6 md:h-6 mr-4 md:mr-8" />
@@ -121,13 +128,13 @@ export default function Hero() {
                     zIndex: 1,
                   }}
                 >
-                  <source src="/hero-mockup-video.mp4" type="video/mp4" />
-                  <source src="/hero-mockup-video.mov" type="video/quicktime" />
+                  <source src="/hero/hero-mockup-video.mp4" type="video/mp4" />
+                  <source src="/hero/hero-mockup-video.mov" type="video/quicktime" />
                 </video>
               </div>
               {/* Laptop frame SVG overlay */}
               <img
-                src="/hero-mockup-frame.svg"
+                src="/hero/hero-mockup-frame.svg"
                 alt="CredMatrix Platform"
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 style={{ zIndex: 20 }}

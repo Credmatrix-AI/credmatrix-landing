@@ -24,7 +24,7 @@ export default function Footer() {
             <div>
               <Link href="/" className="inline-block mb-16 md:mb-24">
                 <Image
-                  src="/credmatrix-logo.svg"
+                  src="/brand/credmatrix-logo.svg"
                   alt="CredMatrix"
                   width={150}
                   height={40}
