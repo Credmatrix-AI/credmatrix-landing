@@ -7,6 +7,7 @@ export interface BlogFrontmatter {
   category: string
   tags?: string[]
   cover?: string
+  ogImage?: string
   featured?: boolean
   draft?: boolean
 }

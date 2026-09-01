@@ -4,7 +4,7 @@ import Section from '@/components/layout/Section'
 import Heading from '@/components/ui/Heading'
 import AnimateOnScroll from '@/components/shared/AnimateOnScroll'
 import BlogCard from '@/components/blog/BlogCard'
-import { getAllPosts } from '@/lib/blog'
+import { DEFAULT_SOCIAL_IMAGE, getAllPosts } from '@/lib/blog'
 
 const description =
   'Tracking what matters most in B2B credit and trade finance.'
@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     description,
     type: 'website',
     url: '/blog',
+    images: [{ url: DEFAULT_SOCIAL_IMAGE, width: 1200, height: 630, alt: 'CredMatrix' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The CredMatrix Pulse',
+    description,
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
 }
 

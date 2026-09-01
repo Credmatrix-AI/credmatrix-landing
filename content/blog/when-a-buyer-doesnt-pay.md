@@ -4,7 +4,7 @@ description: "A buyer default is never just an unpaid bill. It locks up working 
 date: "2026-08-31"
 author: "Ansa Merin"
 authorAvatar: "/blog/authors/ansa-merin.jpg"
-cover: "/blog/covers/when-a-buyer-doesnt-pay.svg"
+cover: "/blog/covers/when-a-buyer-doesnt-pay.jpg"
 category: "Trade Credit"
 tags: ["trade credit", "buyer default", "working capital", "counterparty monitoring"]
 featured: true

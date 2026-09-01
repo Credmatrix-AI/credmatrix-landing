@@ -10,6 +10,7 @@ import {
   getPostBySlug,
   getPostSlugs,
   getRelatedPosts,
+  getSocialImage,
 } from '@/lib/blog'
 
 interface BlogPostPageProps {
@@ -24,6 +25,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const post = await getPostBySlug(params.slug)
   if (!post) return { title: 'Post not found' }
 
+  const socialImage = getSocialImage(post.ogImage)
+
   return {
     title: post.title,
     description: post.description,
@@ -36,13 +39,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
-      images: post.cover ? [post.cover] : undefined,
+      images: [{ url: socialImage, width: 1200, height: 630, alt: 'CredMatrix' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: post.cover ? [post.cover] : undefined,
+      images: [socialImage],
     },
   }
 }
@@ -59,7 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    image: post.cover ? [post.cover] : undefined,
+    image: [getSocialImage(post.ogImage)],
     author: { '@type': 'Organization', name: post.author },
     publisher: { '@type': 'Organization', name: 'CredMatrix' },
   }

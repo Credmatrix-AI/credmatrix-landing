@@ -75,6 +75,21 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   }
 }
 
+/**
+ * The on-page cover is sized for blog cards (1200x480, cropped hard by
+ * object-cover); social cards want 1200x630. They are different crops, so
+ * og:image gets its own asset rather than reusing the cover. Crawlers also
+ * refuse SVG — an SVG here is dropped silently and the scraper falls back to
+ * the largest raster on the page, which used to be the author avatar — so only
+ * raster overrides are honoured.
+ */
+export const DEFAULT_SOCIAL_IMAGE = '/blog/covers/og-default.jpg'
+
+export function getSocialImage(ogImage?: string): string {
+  if (ogImage && /\.(png|jpe?g|webp)$/i.test(ogImage)) return ogImage
+  return DEFAULT_SOCIAL_IMAGE
+}
+
 export function getAllCategories(): string[] {
   const categories = getAllPosts().map((post) => post.category)
   return Array.from(new Set(categories)).sort()
