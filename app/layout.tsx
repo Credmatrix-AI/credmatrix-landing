@@ -21,8 +21,12 @@ const libreCaslonText = Libre_Caslon_Text({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://credmatrix.ai'),
-  title: 'CredMatrix - Financial Due Diligence Intelligence',
-  description: 'Transforming financial due-diligence intelligence into accessible, affortable & instant resource for every decision - maker',
+  title: {
+    default: 'CredMatrix - Financial Due Diligence, Made Simple',
+    template: '%s | CredMatrix',
+  },
+  description:
+    'Financial due diligence made quick, affordable and easy to read.',
 }
 
 export default function RootLayout({

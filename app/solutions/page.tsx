@@ -17,9 +17,12 @@ export default function SolutionsPage() {
         <Section background="white" className="pt-80 relative bg-transparent">
           <Container>
             <AnimateOnScroll animation="fadeUp" className="text-center mb-64">
-              <Heading as="h1" align="center" className="mb-24">
+              <Heading as="h1" align="center">
                 Meet the Definitive Risk Assessment Platform
               </Heading>
+              <p className="mt-12 text-center text-base md:text-lg text-neutral-600 max-w-2xl mx-auto">
+                Risk reports, financial analysis and ongoing monitoring, all in one place.
+              </p>
             </AnimateOnScroll>
           </Container>
         </Section>

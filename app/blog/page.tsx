@@ -6,15 +6,16 @@ import AnimateOnScroll from '@/components/shared/AnimateOnScroll'
 import BlogCard from '@/components/blog/BlogCard'
 import { getAllPosts } from '@/lib/blog'
 
+const description =
+  'Tracking what matters most in B2B credit and trade finance.'
+
 export const metadata: Metadata = {
-  title: 'Blog | CredMatrix',
-  description:
-    'Practical notes on counterparty risk, credit assessment and financial due diligence in India — from the CredMatrix risk team.',
+  title: { absolute: 'The CredMatrix Pulse' },
+  description,
   alternates: { canonical: '/blog' },
   openGraph: {
-    title: 'Blog | CredMatrix',
-    description:
-      'Practical notes on counterparty risk, credit assessment and financial due diligence in India.',
+    title: 'The CredMatrix Pulse',
+    description,
     type: 'website',
     url: '/blog',
   },
@@ -36,8 +37,11 @@ export default function BlogPage() {
           <Container>
             <AnimateOnScroll>
               <Heading as="h1" align="center">
-                The CredMatrix Blog
+                The CredMatrix Pulse
               </Heading>
+              <p className="mt-12 text-center text-base md:text-lg text-neutral-600 max-w-2xl mx-auto">
+                {description}
+              </p>
             </AnimateOnScroll>
           </Container>
         </div>

@@ -29,9 +29,12 @@ export default function FAQPage() {
               animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: DURATION.normal, ease: EASING }}
             >
-              <Heading as="h1" align="center" className="mb-32">
+              <Heading as="h1" align="center">
                 Frequently Asked Questions
               </Heading>
+              <p className="mt-12 text-center text-base md:text-lg text-neutral-600 max-w-2xl mx-auto">
+                What we cover, where our data comes from, and how to get started.
+              </p>
             </motion.div>
           </Container>
         </div>

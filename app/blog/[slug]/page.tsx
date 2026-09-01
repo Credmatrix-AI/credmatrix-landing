@@ -22,10 +22,10 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const post = await getPostBySlug(params.slug)
-  if (!post) return { title: 'Post not found | CredMatrix' }
+  if (!post) return { title: 'Post not found' }
 
   return {
-    title: `${post.title} | CredMatrix`,
+    title: post.title,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
