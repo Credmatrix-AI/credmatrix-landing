@@ -46,7 +46,7 @@ Across every industry the pattern repeats: the company that gave credit ends up 
 
 ## The Real Fix Is Visibility
 
-Most of this damage happens because warning signs were there and were not monitored. A Buyer's payment cycle may stretch, GST filing may be irregular, leverage may rise or customer concentration may grow long before a default. Continuous data-driven monitoring of counterparties — rather than a one-time credit check at onboarding — lets a company reduce exposure to a deteriorating Buyer before the non-payment occurs, not after. A single [risk score covering customers, suppliers and competitors](/blog/risk-score-competitors-customers-suppliers) is the practical way to watch all of that at once.
+Most of this damage happens because warning signs were there and were not monitored. A Buyer's payment cycle may stretch, GST filing may be irregular, leverage may rise or customer concentration may grow long before a default. Continuous data-driven monitoring of counterparties — rather than a one-time credit check at onboarding — lets a company reduce exposure to a deteriorating Buyer before the non-payment occurs, not after.
 
 ## How CredMatrix Helps
 

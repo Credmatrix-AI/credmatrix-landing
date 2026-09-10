@@ -34,7 +34,7 @@ Take two competitors in the same industry, both reporting similar revenue growth
 
 Every time you offer a customer net-30, net-60 or project-based credit, you're making a lending decision — usually without a lender's diligence. A customer's risk score brings structure to that decision. It flags rising debt loads, GST filing gaps or a pattern of delayed payments before you've already shipped the goods or delivered the service.
 
-This is especially relevant in B2B relationships where invoice values are high and payment cycles are long. A new customer winning large contracts can look impressive; their risk score will tell you whether they have the financial discipline to actually pay on time, or whether your receivables are quietly becoming a problem. We've written before about [what a buyer default actually costs a supplier](/blog/when-a-buyer-doesnt-pay) — the score is what gives you warning before you get there.
+This is especially relevant in B2B relationships where invoice values are high and payment cycles are long. A new customer winning large contracts can look impressive; their risk score will tell you whether they have the financial discipline to actually pay on time, or whether your receivables are quietly becoming a problem.
 
 ### 3. Suppliers: Protect Your Supply Chain Before It Breaks
 
