@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/blog'
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://credmatrix.ai'
+import { SITE_URL } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ['', '/solutions', '/about', '/blog', '/faq'].map((route) => ({

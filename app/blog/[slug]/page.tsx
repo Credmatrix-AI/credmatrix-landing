@@ -12,6 +12,7 @@ import {
   getRelatedPosts,
   getSocialImage,
 } from '@/lib/blog'
+import { absoluteUrl } from '@/lib/site'
 
 interface BlogPostPageProps {
   params: { slug: string }
@@ -28,15 +29,20 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const socialImage = getSocialImage(post.ogImage)
 
   return {
-    title: post.title,
+    title: post.seoTitle ?? post.title,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
+      // Social cards have far more room than a SERP entry, so they get the full
+      // headline rather than the truncated-for-Google seoTitle.
       title: post.title,
       description: post.description,
       type: 'article',
       url: `/blog/${post.slug}`,
+      siteName: 'CredMatrix',
+      locale: 'en_IN',
       publishedTime: post.date,
+      modifiedTime: post.updated ?? post.date,
       authors: [post.author],
       tags: post.tags,
       images: [{ url: socialImage, width: 1200, height: 630, alt: 'CredMatrix' }],
@@ -62,9 +68,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    image: [getSocialImage(post.ogImage)],
-    author: { '@type': 'Organization', name: post.author },
+    dateModified: post.updated ?? post.date,
+    image: [absoluteUrl(getSocialImage(post.ogImage))],
+    // Bylines here are people, not the company — typing them as Organization
+    // breaks Google's author entity resolution.
+    author: { '@type': 'Person', name: post.author },
     publisher: { '@type': 'Organization', name: 'CredMatrix' },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': absoluteUrl(`/blog/${post.slug}`),
+    },
   }
 
   return (
@@ -99,7 +112,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.title}
             </h1>
 
-            <p className="text-base md:text-lg text-neutral-600 mb-16">{post.description}</p>
+            <p className="text-base md:text-lg text-neutral-600 mb-16">
+              {post.excerpt ?? post.description}
+            </p>
 
             <AuthorByline
               author={post.author}

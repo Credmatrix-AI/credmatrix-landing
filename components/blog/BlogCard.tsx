@@ -56,7 +56,9 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
           {post.title}
         </h3>
 
-        <p className="text-sm text-neutral-600 mb-16 flex-1">{post.description}</p>
+        <p className="text-sm text-neutral-600 mb-16 flex-1">
+          {post.excerpt ?? post.description}
+        </p>
 
         <AuthorByline
           author={post.author}
